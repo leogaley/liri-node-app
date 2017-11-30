@@ -21,7 +21,9 @@ var twitterCommand = function(){
    			return console.log(error);
    		}
 
-   		for (i=0;i<tweets.statuses.length;i++){
+   		var numberOfTweetsToShow = Math.min(tweets.statuses.length,20);
+
+   		for (i=0;i<numberOfTweetsToShow;i++){
 
    			var logString = '\n-----------------';
    			logString +=  '\nTweet Contents: ' + tweets.statuses[i].text;
@@ -49,7 +51,6 @@ var spotifyCommand = function(song){
   			return console.log('\nSong Not Found!');
   		}
   		else {
-		 	console.log(data);
 			var title = data.tracks.items[0].name; 
 			var album = data.tracks.items[0].album.name; 
 			var artist = data.tracks.items[0].artists[0].name; 
